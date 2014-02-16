@@ -13,8 +13,8 @@ sub init {
     my $c      = shift;
     my $config = shift || +{};
 
-    my $access = $config->{access} || '192.30.252.0/22';
-    my @ip     = ref $access ? @$access : ($access);
+    my $allow = $config->{allow} || '192.30.252.0/22';
+    my @ip     = ref $allow ? @$allow : ($allow);
     my $github_addr = Net::CIDR::Lite->new;
     $github_addr->add_any($_) for @ip;
 
@@ -94,7 +94,7 @@ application.
 You can initialize this plugin with access restrictions:
 
     Your::App->load_plugin(
-        "Web::Github::Webhook", { access => '192.30.252.0/22' }
+        "Web::Github::Webhook", { allow => '192.30.252.0/22' }
     );
 
 Default: C<192.30.252.0/22>.

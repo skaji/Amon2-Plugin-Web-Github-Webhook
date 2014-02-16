@@ -14,14 +14,14 @@ use Test::More;
     package MyApp::Web1;
     use parent -norequire, qw/MyApp/;
     use parent qw/Amon2::Web/;
-    __PACKAGE__->load_plugin('Web::Github::Webhook', { access => '0.0.0.0/0'});
+    __PACKAGE__->load_plugin('Web::Github::Webhook', { allow => '0.0.0.0/0'});
     sub dispatch { MyApp::Web::Dispather->dispatch(shift) }
 }
 {
     package MyApp::Web2;
     use parent -norequire, qw/MyApp/;
     use parent qw/Amon2::Web/;
-    __PACKAGE__->load_plugin('Web::Github::Webhook', { access => '203.0.113.0'});
+    __PACKAGE__->load_plugin('Web::Github::Webhook', { allow => '203.0.113.0'});
     sub dispatch { MyApp::Web::Dispather->dispatch(shift) }
 }
 {

@@ -48,7 +48,7 @@ application.
 You can initialize this plugin with access restrictions:
 
     Your::App->load_plugin(
-        "Web::Github::Webhook", { access => '192.30.252.0/22' }
+        "Web::Github::Webhook", { allow => '192.30.252.0/22' }
     );
 
 Default: `192.30.252.0/22`.
